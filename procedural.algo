@@ -1,0 +1,67 @@
+///////////////////////////////  PROCEDURE dot_product  /////////////////////////////////
+
+PROCEDURE dot_product(t1,t2:ARRAY_OF FLOAT)
+VAR
+    i:INTEGER:=0;
+    ps:FLOAT:=0;
+BEGIN
+    IF (t1.length = t2.length) THEN
+        FOR i FROM 0 TO t1.length-1 STEP 1 DO
+            ps=ps+t1[i]*t2[i];
+        END_FOR  
+    ELSE 
+    write ("The two vectors are not equal");
+    END_IF
+
+END
+////////////////////////////// ALGORITHM Dot_product  ////////////////////////////////////
+ALGORITHM Dot_product
+VAR
+    v1: ARRAY_OF FLOAT[];
+    v2: ARRAY_OF FLOAT[];
+
+    i,n:INTEGER:=0
+BEGIN
+
+    write ("Please enter the number of pairs of vectors");
+    Read(n);
+    
+        FOR i FROM 0 TO n-1 STEP 1  DO
+            write ("please enter the first vector");
+            Read (v1);
+            write ("please enter the second vector");
+            Read (v2);
+            dot_product(v1,v2);
+            write("the Dot Product is ",ps);
+        END_FOR
+    
+END
+
+
+////////////////////////////// Function Dot_product  ////////////////////////////////////
+FUNCTION Dot_product() : FLOAT
+VAR
+    V1,V2: ARRAY_OF FLOAT;
+    i,j,n:INTEGER:=0;
+    ps:FLOAT:=0;
+BEGIN
+    write ("Please enter the number of pairs of vectors");
+    Read(n); 
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        write ("please enter the first vector");
+        Read (v1);
+        write ("please enter the second vector");
+        Read (v2);
+        IF (V1.length = V2.length) THEN
+            FOR j FROM 0 TO V1.length-1 STEP 1 DO
+            ps=ps+V1[i]*V2[i];
+            END_FOR 
+            ELSE 
+            write ("The two vectors are not equal");
+        END_IF
+        write("the Dot Product is ",ps);
+        END_FOR
+
+
+    RETURN ps ;
+END
